@@ -86,19 +86,25 @@ def extract_links(base_url):
                 found_urls.add(absolute_url)
     return found_urls
 
-seen_urls = {b'https://www.ifie.org.il/'}
-to_query_queue = [(b'https://www.ifie.org.il/', 0)]
-scraped_count = 0
+result = {}
 
-while to_query_queue:
-    # TODO: async requests
-    url, depth = to_query_queue[0]
-    to_query_queue = to_query_queue[1:]
-    for new_url in extract_links(url):
-        # TODO: properly canonicalize URLs
-        if not new_url in seen_urls and depth < MAX_DEPTH:
-            seen_urls.add(new_url)
-            to_query_queue.append((new_url, depth + 1))
-    scraped_count += 1
-    if scraped_count % 10 == 0:
-        print(scraped_count, '/', len(seen_urls))
+for domain in [b'firstime.vc']:
+    base_url = b'https://' + domain + '/'
+    seen_urls = {base_url}
+    to_query_queue = [(base_url, 0)]
+    scraped_count = 0
+
+    while to_query_queue:
+        # TODO: async requests
+        url, depth = to_query_queue[0]
+        to_query_queue = to_query_queue[1:]
+        for new_url in extract_links(url):
+            # TODO: properly canonicalize URLs
+            if not new_url in seen_urls and depth < MAX_DEPTH:
+                seen_urls.add(new_url)
+                if domain in new_url:
+                    to_query_queue.append((new_url, depth + 1))
+        scraped_count += 1
+        if scraped_count % 10 == 0:
+            print(scraped_count, '/', len(seen_urls))
+    result[domain] = list(seen_urls)

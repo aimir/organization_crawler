@@ -74,5 +74,8 @@ if __name__ == '__main__':
 
     records_by_org = get_records_by_org(organizations, linkedin)
     org_and_linked_org_to_num_of_links_mapping = get_org_and_linked_org_to_num_of_links_mapping(records_by_org)
+    # remove all org_and_linked_org pairs that are not in organizations
+    org_and_linked_org_to_num_of_links_mapping = {k: v for k, v in org_and_linked_org_to_num_of_links_mapping.items() 
+                                                  if k[0] in organizations and k[1] in organizations and k[0] != k[1]}
     pprint(org_and_linked_org_to_num_of_links_mapping)
 

@@ -36,7 +36,8 @@ organizations = ['2bvc', 'amoon-fund', 'arc-impact', 'bridges-israel', 'capital-
                  'israeli-smart-energy-association', 'toniic', 'impact-51', 'michal-sela-forum',
                  'mindcet--ed-tech-innovation-center', 'pears-program-for-global-innovation', '8200impact', 'a3i',
                  'aion-labs', 'dana-lp', 'edstart-edtech-hub', 'hackaveret', 'masschallenge-israel', 'presentense',
-                 'the-kitchen-hub', 'code-for-israel', u'המרכז-להתייעלות-במשאבים']
+                 'the-kitchen-hub', 'code-for-israel', u'המרכז-להתייעלות-במשאבים', 'lin-health', 'amai-proteins',
+                 'addionics', 'agritask', 'iluria-ltd', 'keheala', 'riseupisrael']
 
 
 def get_records_by_org(organization_names, linkedin, recalculate=False, should_save_records=True):

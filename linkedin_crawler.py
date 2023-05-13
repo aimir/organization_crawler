@@ -7,18 +7,36 @@ import os
 from functools import reduce
 
 
-organizations = ['rothschild-cube', 'ourcrowd-llc', 'hilma-tech-for-impact', 'sdg-israel', 'cactus-capital',
-                 'the-israeli-national-advisory-board-for-impact-investing', 'pitango-vc', 'innovalley-ltd',
-                 'startup-nation-central', 'hanacoventures', 'tech-for-good', 'impact-first-investments',
-                 'foodtech-israel', 'firstime-vc', 'edstart-edtech-hub', 'gfiisrael', 'the-kitchen-hub',
-                 'conscious-capitalism-israel', 'hackaveret', '2bvc', 'fresh-start-foodtech-incubator-il', 'toniic',
-                 'mindcet--ed-tech-innovation-center', 'masschallenge-israel', 'presentense', 'huji-innovate',
-                 'rashi-foundation', 'microsoft', 'tau-ventures', 'health-il', 'bridges-israel',
-                 'social-finance-israel', 'trendlines', 'our-generation-speaks', 'impact-idc',
-                 'pears-program-for-global-innovation', 'a3i', 'max-initiative', 'desertech', 'arc-impact',
-                 '8200impact', 'amoon-fund', 'zora', 'edmond-rothschild-foundation-il',
-                 'planetech-climate-tech-technologies', 'strauss-group', 'ecomotion-israel',
-                 't3-technion-technology-transfer', 'growingil', 'gandyr-investments-group', 'impact-nation']
+organizations = ['2bvc', 'amoon-fund', 'arc-impact', 'bridges-israel', 'capital-nature', 'champel-capital',
+                 'firstime-vc', 'good-company-mission-driven', 'jvp', 'kmai-capital', 'morevc', 'nevateam',
+                 'neweracp', 'ourcrowd-llc', 'pitango-vc', 'rhodium', 'takwin-vc', 'terra-venture-partners',
+                 'the-founders-kitchen', 'trendlines', 'wonder-ventures-capital-management', 'zora',
+                 'cactus-capital', 'realityinvestmentfund', 'chw', 'edmond-rothschild-foundation-il',
+                 'rashi-foundation', 'ujia', 'gandyr-investments-group', 'keren-hayesod---uia', 'leichtag-foundation',
+                 'menomadin-foundation', 'merage-foundation-israel', 'the-portland-tlv', 'ruderman-family-foundation',
+                 'the-jewish-federation-of-greater-los-angeles', 'the-russell-berrie-foundation',
+                 'tmura---the-israeli-public-service-venture-fund', 'uja-federation-of-new-york', 'yad-hanadiv',
+                 'value-2-responsible-investment-house', 'vintage-investment-partners', 'vital-capital',
+                 'bird-foundation', 'theellafund', 'israelinnovationauthority', 'israel-venture-network', 'jimpact',
+                 'kinneret-impact-ventures', 'menomadin-foundation', 'israel-free-loan-association',
+                 u'start-החטיבה-לחדשנות-טכנולוגית-במשרד-החינוך', 'hilma-tech-for-impact', 'max-initiative', 'unistream',
+                 'rothschild-cube',
+                 'kayama-executive-education-centre-for-social-innovation-and-impact-entrepreneurship\u200f',
+                 'social-finance-israel', 'milkeninnovationcenter', 'erasmus-ifi-innovative-finance-inclusion',
+                 'rise-impact-mta', 'maala', 'startup-nation-central', 'tech-for-good',
+                 'm-a-program-in-migration-studies-at-tel-aviv-university', 'yazamut360',
+                 'bar-ilan-centre-for-smart-cities', 'esil-environmental-sustainability-innovation-lab',
+                 'galil-ofek-ventures', 'huji-innovate', 'innovalley-ltd', 'the-peres-center-for-peace',
+                 'knowledge-center-for-innovation', 'fresh-start-foodtech-incubator-il', 'medx-xelerator-lp',
+                 'mindup-ltd.', 'our-generation-speaks', 'the-kitchen-hub', 'conscious-capitalism-israel', 'jdc',
+                 'google', 'the-israeli-national-advisory-board-for-impact-investing', u'ציונות-2000', 'istipi',
+                 'imagine-impact-consulting', 'israel-impact-partners', 'weave-impact', '8400-the-health-network',
+                 'strauss-group', 'desertech', 'ecomotion-israel', 'the-gita', 'growingil', 'hasoub', 'health-il',
+                 'igtsil', 'impact-nation', 'lavan', 'planetech-climate-tech-technologies', 'sdg-israel', 'gfiisrael',
+                 'israeli-smart-energy-association', 'toniic', 'impact-51', 'michal-sela-forum',
+                 'mindcet--ed-tech-innovation-center', 'pears-program-for-global-innovation', '8200impact', 'a3i',
+                 'aion-labs', 'dana-lp', 'edstart-edtech-hub', 'hackaveret', 'masschallenge-israel', 'presentense',
+                 'the-kitchen-hub', 'code-for-israel', u'המרכז-להתייעלות-במשאבים']
 
 
 def get_records_by_org(organization_names, linkedin, recalculate=False, should_save_records=True):
